@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Charbel's Apps</title>
+  <meta name="description" content="Lebanese party games for your phone: Kezbe Bayda and Massela, on the App Store and Google Play.">
+  <meta name="theme-color" content="#FFF6E6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#17090C" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Charbel's Apps">
+  <meta property="og:description" content="Lebanese party games for your phone: Kezbe Bayda and Massela.">
+  <meta property="og:url" content="https://charbelabou.github.io/apps/">
+  <style>
+    :root {
+      --bg: #FFF6E6;
+      --ink: #2A0F14;
+      --muted: #6B4E53;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #17090C;
+        --ink: #FFF1D6;
+        --muted: #CDB3B7;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: ui-rounded, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.45;
+      padding: max(28px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right))
+               max(28px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+    }
+    main { max-width: 480px; margin: 0 auto; }
+
+    header { text-align: center; margin-bottom: 24px; }
+    h1 { margin: 0 0 6px; font-size: 1.9rem; line-height: 1.15; font-weight: 900; letter-spacing: -0.01em; }
+    header p { margin: 0; color: var(--muted); font-size: 1.02rem; text-wrap: balance; }
+
+    .card {
+      --btn-bg: var(--accent);
+      background: var(--card);
+      color: var(--on);
+      border-radius: 26px;
+      padding: 22px 20px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 7px 0 var(--deep);
+    }
+    .kezbe   { --card: #7C1428; --deep: #2A0710; --accent: #FFC83D; --on: #FFF1D6; --btn-ink: #2A0710; }
+    .massela { --card: #C8261C; --deep: #5C100B; --accent: #FFFFFF; --on: #FFFFFF; --btn-ink: #9E1B13; }
+
+    .top { display: flex; align-items: center; gap: 16px; }
+    .icon {
+      flex: none; width: 88px; height: 88px; border-radius: 22.37%;
+      box-shadow: 0 0 0 3px var(--on), 0 4px 0 3px var(--deep);
+    }
+    h2 { margin: 0; font-size: 1.55rem; line-height: 1.1; font-weight: 900; color: var(--accent); }
+    .tag { margin: 4px 0 0; font-weight: 700; }
+    .blurb { margin: 16px 0 18px; font-size: 1rem; }
+
+    .stores { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    @media (max-width: 359px) { .stores { grid-template-columns: 1fr; } }
+
+    .btn {
+      display: flex; flex-direction: column; justify-content: center;
+      min-height: 56px; padding: 8px 14px;
+      border-radius: 999px; text-align: center; text-decoration: none;
+      background: var(--btn-bg); color: var(--btn-ink);
+      box-shadow: 0 4px 0 var(--deep);
+      transition: transform 120ms ease, box-shadow 120ms ease;
+    }
+    .btn small { font-size: 0.72rem; font-weight: 700; opacity: 0.85; line-height: 1.1; }
+    .btn strong { font-size: 1.05rem; font-weight: 900; line-height: 1.2; }
+    a.btn:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--deep); }
+    a.btn:focus-visible, .meta a:focus-visible { outline: 3px solid var(--on); outline-offset: 3px; }
+    .btn.soon {
+      background: transparent; color: var(--on);
+      border: 2px dashed var(--on); box-shadow: none;
+    }
+    .btn.soon small { opacity: 1; }
+
+    .meta { margin: 14px 0 0; font-size: 0.85rem; text-align: center; }
+    .meta a { color: var(--on); text-underline-offset: 3px; }
+
+    footer { text-align: center; color: var(--muted); font-size: 0.85rem; margin-top: 28px; }
+
+    @media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Charbel's Apps</h1>
+      <p>Lebanese party games for your phone. No accounts, no ads.</p>
+    </header>
+
+    <!--
+      To add an app: copy one <section class="card …"> block, give it a colour class in the <style> above,
+      and drop its icon into icons/. To publish a store link that is "Coming soon": replace the
+      <span class="btn soon"> with an <a class="btn" href="…"> (copy the other button).
+    -->
+
+    <section class="card kezbe" aria-labelledby="kb-name">
+      <div class="top">
+        <img class="icon" src="icons/kezbe-bayda.png" width="88" height="88" alt="">
+        <div>
+          <h2 id="kb-name">Kezbe Bayda</h2>
+          <p class="tag">The game show of lies</p>
+        </div>
+      </div>
+      <p class="blurb">A bluffing trivia game for 3 to 8 friends on the same Wi-Fi. Write a fake answer that sounds real, then vote for the one you think is true.</p>
+      <div class="stores">
+        <a class="btn" href="https://apps.apple.com/app/id6816085585">
+          <small>Download on the</small><strong>App Store</strong>
+        </a>
+        <a class="btn" href="https://play.google.com/store/apps/details?id=com.kezbebayda.app">
+          <small>Get it on</small><strong>Google Play</strong>
+        </a>
+      </div>
+      <p class="meta">
+        <a href="https://charbelabou.github.io/legal/kezbe-bayda/support.html">Support</a> ·
+        <a href="https://charbelabou.github.io/legal/kezbe-bayda/privacy.html">Privacy</a>
+      </p>
+    </section>
+
+    <section class="card massela" aria-labelledby="ms-name">
+      <div class="top">
+        <img class="icon" src="icons/massela.png" width="88" height="88" alt="">
+        <div>
+          <h2 id="ms-name">Massela</h2>
+          <p class="tag">Lebanese charades</p>
+        </div>
+      </div>
+      <p class="blurb">Put the phone on your forehead and let your team act out, sing or describe the word. Tilt down when you guess it, tilt up to pass.</p>
+      <div class="stores">
+        <a class="btn" href="https://apps.apple.com/app/id6757847836">
+          <small>Download on the</small><strong>App Store</strong>
+        </a>
+        <span class="btn soon">
+          <small>Google Play</small><strong>Coming soon</strong>
+        </span>
+      </div>
+      <p class="meta">
+        <a href="https://charbelabou.github.io/legal/massela/support.html">Support</a> ·
+        <a href="https://charbelabou.github.io/legal/massela/privacy.html">Privacy</a>
+      </p>
+    </section>
+
+    <footer>Made by Charbel</footer>
+  </main>
+</body>
+</html>
