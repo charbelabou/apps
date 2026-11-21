@@ -4,154 +4,177 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Charbel's Apps</title>
-  <meta name="description" content="Lebanese party games for your phone: Kezbe Bayda and Massela, on the App Store and Google Play.">
-  <meta name="theme-color" content="#FFF6E6" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#17090C" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Play a round before you download: Kezbe Bayda and Massela, Lebanese party games on the App Store and Google Play.">
+  <meta name="theme-color" content="#5E0D1B">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Charbel's Apps">
-  <meta property="og:description" content="Lebanese party games for your phone: Kezbe Bayda and Massela.">
+  <meta property="og:description" content="Play a round before you download: Kezbe Bayda and Massela, Lebanese party games.">
   <meta property="og:url" content="https://charbelabou.github.io/apps/">
-  <style>
-    :root {
-      --bg: #FFF6E6;
-      --ink: #2A0F14;
-      --muted: #6B4E53;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) {
-        --bg: #17090C;
-        --ink: #FFF1D6;
-        --muted: #CDB3B7;
-      }
-    }
-
-    * { box-sizing: border-box; }
-    html { -webkit-text-size-adjust: 100%; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: ui-rounded, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.45;
-      padding: max(28px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right))
-               max(28px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
-    }
-    main { max-width: 480px; margin: 0 auto; }
-
-    header { text-align: center; margin-bottom: 24px; }
-    h1 { margin: 0 0 6px; font-size: 1.9rem; line-height: 1.15; font-weight: 900; letter-spacing: -0.01em; }
-    header p { margin: 0; color: var(--muted); font-size: 1.02rem; text-wrap: balance; }
-
-    .card {
-      --btn-bg: var(--accent);
-      background: var(--card);
-      color: var(--on);
-      border-radius: 26px;
-      padding: 22px 20px 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 7px 0 var(--deep);
-    }
-    .kezbe   { --card: #7C1428; --deep: #2A0710; --accent: #FFC83D; --on: #FFF1D6; --btn-ink: #2A0710; }
-    .massela { --card: #C8261C; --deep: #5C100B; --accent: #FFFFFF; --on: #FFFFFF; --btn-ink: #9E1B13; }
-
-    .top { display: flex; align-items: center; gap: 16px; }
-    .icon {
-      flex: none; width: 88px; height: 88px; border-radius: 22.37%;
-      box-shadow: 0 0 0 3px var(--on), 0 4px 0 3px var(--deep);
-    }
-    h2 { margin: 0; font-size: 1.55rem; line-height: 1.1; font-weight: 900; color: var(--accent); }
-    .tag { margin: 4px 0 0; font-weight: 700; }
-    .blurb { margin: 16px 0 18px; font-size: 1rem; }
-
-    .stores { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    @media (max-width: 359px) { .stores { grid-template-columns: 1fr; } }
-
-    .btn {
-      display: flex; flex-direction: column; justify-content: center;
-      min-height: 56px; padding: 8px 14px;
-      border-radius: 999px; text-align: center; text-decoration: none;
-      background: var(--btn-bg); color: var(--btn-ink);
-      box-shadow: 0 4px 0 var(--deep);
-      transition: transform 120ms ease, box-shadow 120ms ease;
-    }
-    .btn small { font-size: 0.72rem; font-weight: 700; opacity: 0.85; line-height: 1.1; }
-    .btn strong { font-size: 1.05rem; font-weight: 900; line-height: 1.2; }
-    a.btn:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--deep); }
-    a.btn:focus-visible, .meta a:focus-visible { outline: 3px solid var(--on); outline-offset: 3px; }
-    .btn.soon {
-      background: transparent; color: var(--on);
-      border: 2px dashed var(--on); box-shadow: none;
-    }
-    .btn.soon small { opacity: 1; }
-
-    .meta { margin: 14px 0 0; font-size: 0.85rem; text-align: center; }
-    .meta a { color: var(--on); text-underline-offset: 3px; }
-
-    footer { text-align: center; color: var(--muted); font-size: 0.85rem; margin-top: 28px; }
-
-    @media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
-  </style>
+  <meta property="og:image" content="https://charbelabou.github.io/apps/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="preload" as="font" type="font/woff2" href="fonts/BowlbyOne_400Regular.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="fonts/DMSans_700Bold.woff2" crossorigin>
+  <link rel="stylesheet" href="site.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-  <main>
-    <header>
-      <h1>Charbel's Apps</h1>
-      <p>Lebanese party games for your phone. No accounts, no ads.</p>
-    </header>
+  <h1 class="brand">Charbel's Apps</h1>
 
-    <!--
-      To add an app: copy one <section class="card …"> block, give it a colour class in the <style> above,
-      and drop its icon into icons/. To publish a store link that is "Coming soon": replace the
-      <span class="btn soon"> with an <a class="btn" href="…"> (copy the other button).
-    -->
+  <!-- App switcher: pinned on phones, hidden on wide screens where both apps sit side by side. -->
+  <header class="bar">
+    <nav class="switch" aria-label="Choose an app">
+      <span class="pill" aria-hidden="true"></span>
+      <button class="tab" type="button" data-go="0" aria-current="true">
+        <img src="icons/kezbe-bayda.png" width="32" height="32" alt="">
+        <span>Kezbe Bayda</span>
+      </button>
+      <button class="tab" type="button" data-go="1">
+        <img src="icons/massela.png" width="32" height="32" alt="">
+        <span>Massela</span>
+      </button>
+    </nav>
+  </header>
 
-    <section class="card kezbe" aria-labelledby="kb-name">
-      <div class="top">
-        <img class="icon" src="icons/kezbe-bayda.png" width="88" height="88" alt="">
-        <div>
-          <h2 id="kb-name">Kezbe Bayda</h2>
-          <p class="tag">The game show of lies</p>
+  <main class="deck" id="deck">
+
+    <!-- ============================== KEZBE BAYDA ============================== -->
+    <section class="stage kb is-active" id="kezbe-bayda" aria-labelledby="kb-title">
+      <div class="bg" aria-hidden="true"></div>
+      <div class="scroll">
+        <div class="content">
+
+          <div class="sign pop" style="--i:0">
+            <span class="bulbs top" aria-hidden="true"></span>
+            <h2 id="kb-title">Kezbe Bayda</h2>
+            <p class="tagline">The game show of lies</p>
+            <span class="bulbs bot" aria-hidden="true"></span>
+          </div>
+
+          <!-- Playable sample round: the real question and the five players' lies from the app. -->
+          <div class="panel pop" style="--i:1" id="kb-panel" data-state="ready" role="group" aria-label="Try a sample round">
+            <div class="panel-head">
+              <span class="tag">Try a round</span>
+              <span class="score">You <b id="kb-score">0</b></span>
+            </div>
+            <p class="q">Sherket E21 la sayd el samak 3emlit sennara gharibe, 70% menna ma3moul men el <span class="blank" id="kb-blank"><span class="sr-only">blank</span></span>.</p>
+            <div class="opts" id="kb-opts">
+              <button class="opt" type="button" data-kind="lie" data-by="Karim">jeld</button>
+              <button class="opt" type="button" data-kind="lie" data-by="Layal">plastic</button>
+              <button class="opt" type="button" data-kind="truth">jazar</button>
+              <button class="opt" type="button" data-kind="lie" data-by="Nour">7adid</button>
+              <button class="opt" type="button" data-kind="lie" data-by="Rami">kabab</button>
+              <button class="opt" type="button" data-kind="lie" data-by="Kamal">anene may</button>
+            </div>
+            <div class="result" id="kb-result" aria-live="polite">
+              <p class="hint">Five friends lied. One answer is true. Tap the one you trust.</p>
+            </div>
+            <div class="confetti" id="kb-confetti" aria-hidden="true"></div>
+          </div>
+
+          <ul class="facts pop" style="--i:2">
+            <li>3 to 8 friends</li>
+            <li>Same Wi-Fi</li>
+            <li>570+ questions</li>
+          </ul>
+
+          <p class="foot pop" style="--i:2">
+            <a href="https://charbelabou.github.io/legal/kezbe-bayda/support.html">Support</a>
+            <a href="https://charbelabou.github.io/legal/kezbe-bayda/privacy.html">Privacy</a>
+            <a class="hop" href="#massela" data-go="1">Massela &rsaquo;</a>
+          </p>
+        </div>
+
+        <div class="dock pop" style="--i:3">
+          <a class="btn" href="https://apps.apple.com/app/id6816085585">
+            <small>Download on the</small><strong>App Store</strong>
+          </a>
+          <a class="btn" href="https://play.google.com/store/apps/details?id=com.kezbebayda.app">
+            <small>Get it on</small><strong>Google Play</strong>
+          </a>
         </div>
       </div>
-      <p class="blurb">A bluffing trivia game for 3 to 8 friends on the same Wi-Fi. Write a fake answer that sounds real, then vote for the one you think is true.</p>
-      <div class="stores">
-        <a class="btn" href="https://apps.apple.com/app/id6816085585">
-          <small>Download on the</small><strong>App Store</strong>
-        </a>
-        <a class="btn" href="https://play.google.com/store/apps/details?id=com.kezbebayda.app">
-          <small>Get it on</small><strong>Google Play</strong>
-        </a>
-      </div>
-      <p class="meta">
-        <a href="https://charbelabou.github.io/legal/kezbe-bayda/support.html">Support</a> ·
-        <a href="https://charbelabou.github.io/legal/kezbe-bayda/privacy.html">Privacy</a>
-      </p>
     </section>
 
-    <section class="card massela" aria-labelledby="ms-name">
-      <div class="top">
-        <img class="icon" src="icons/massela.png" width="88" height="88" alt="">
-        <div>
-          <h2 id="ms-name">Massela</h2>
-          <p class="tag">Lebanese charades</p>
+    <!-- ================================ MASSELA ================================ -->
+    <section class="stage ms" id="massela" aria-labelledby="ms-title">
+      <div class="bg" aria-hidden="true">
+        <i class="stk" style="--x:21%;--y:10%;--r:-14deg;--c:#F6C145;--d:0s">!</i>
+        <i class="stk" style="--x:73%;--y:7%;--r:12deg;--c:#1B6D93;--d:-2s">?</i>
+        <i class="stk" style="--x:74%;--y:24%;--r:-8deg;--c:#F0692C;--d:-4s">!</i>
+        <i class="stk" style="--x:19%;--y:24%;--r:10deg;--c:#4DB6A5;--d:-1s">?</i>
+      </div>
+      <div class="scroll">
+        <div class="content">
+
+          <div class="title pop" style="--i:0">
+            <h2 id="ms-title">Massela</h2>
+            <p class="tagline">Lebanese charades</p>
+          </div>
+
+          <!-- Playable sample round: real words from the app's packs. Drag the card, or use the buttons. -->
+          <div class="game pop" style="--i:1" role="group" aria-label="Try a sample round">
+            <button class="act pass" type="button" id="ms-pass" aria-label="Pass this word">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Pass
+            </button>
+
+            <div class="phone" id="ms-phone" data-state="idle">
+              <div class="phone-top">
+                <span class="cat" id="ms-cat">Animals</span>
+                <span class="meta"><span class="count" id="ms-count">0</span><span class="timer" id="ms-timer">0:30</span></span>
+              </div>
+              <div class="word-wrap" id="ms-wrap">
+                <p class="word" id="ms-word">7san</p>
+                <p class="ar" id="ms-ar" lang="ar" dir="rtl">حصان</p>
+              </div>
+              <div class="flash" id="ms-flash" aria-hidden="true"></div>
+              <div class="done" id="ms-done" hidden>
+                <p class="done-title">Time's up!</p>
+                <p class="done-score" id="ms-final"></p>
+                <button class="again" type="button" id="ms-again">Play again</button>
+              </div>
+              <div class="tbar" aria-hidden="true"><i id="ms-bar"></i></div>
+            </div>
+
+            <button class="act ok" type="button" id="ms-ok" aria-label="Mark this word correct">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 5v14M5.5 12.5 12 19l6.5-6.5" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Correct
+            </button>
+
+            <p class="how" id="ms-how">Drag the card down when you guess it, up to pass. Your 30 seconds start on the first move.</p>
+            <p class="sr-only" id="ms-live" aria-live="polite"></p>
+          </div>
+
+          <ul class="facts pop" style="--i:2">
+            <li>Works offline</li>
+            <li>Make your own packs</li>
+            <li>Free, no ads</li>
+          </ul>
+
+          <p class="foot pop" style="--i:2">
+            <a href="https://charbelabou.github.io/legal/massela/support.html">Support</a>
+            <a href="https://charbelabou.github.io/legal/massela/privacy.html">Privacy</a>
+            <a class="hop" href="#kezbe-bayda" data-go="0">&lsaquo; Kezbe Bayda</a>
+          </p>
+        </div>
+
+        <div class="dock pop" style="--i:3">
+          <a class="btn" href="https://apps.apple.com/app/id6757847836">
+            <small>Download on the</small><strong>App Store</strong>
+          </a>
+          <span class="btn soon">
+            <small>Google Play</small><strong>Coming soon</strong>
+          </span>
         </div>
       </div>
-      <p class="blurb">Put the phone on your forehead and let your team act out, sing or describe the word. Tilt down when you guess it, tilt up to pass.</p>
-      <div class="stores">
-        <a class="btn" href="https://apps.apple.com/app/id6757847836">
-          <small>Download on the</small><strong>App Store</strong>
-        </a>
-        <span class="btn soon">
-          <small>Google Play</small><strong>Coming soon</strong>
-        </span>
-      </div>
-      <p class="meta">
-        <a href="https://charbelabou.github.io/legal/massela/support.html">Support</a> ·
-        <a href="https://charbelabou.github.io/legal/massela/privacy.html">Privacy</a>
-      </p>
     </section>
 
-    <footer>Made by Charbel</footer>
   </main>
+
+  <script src="site.js" defer></script>
 </body>
 </html>
