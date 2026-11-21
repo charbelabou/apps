@@ -4,151 +4,176 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Charbel's Apps</title>
-  <meta name="description" content="Lebanese party games for your phone: Kezbe Bayda and Massela, on the App Store and Google Play.">
-  <meta name="theme-color" content="#FFF6E6" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#17090C" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Kezbe Bayda and Massela, Lebanese party games, on the App Store and Google Play.">
+  <meta name="theme-color" content="#7C1428">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Charbel's Apps">
-  <meta property="og:description" content="Lebanese party games for your phone: Kezbe Bayda and Massela.">
+  <meta property="og:description" content="Kezbe Bayda and Massela, Lebanese party games.">
   <meta property="og:url" content="https://charbelabou.github.io/apps/">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="preload" as="font" type="font/woff2" href="fonts/BowlbyOne_400Regular.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="fonts/TitanOne-Regular.woff2" crossorigin>
   <style>
+    /* Each panel is drawn in its own app's visual language: Kezbe Bayda is the game-show sunburst with gold and
+       hard shadows, Massela is the sticker style with navy outlines. Fonts are the ones the apps use. */
+    @font-face { font-family: "Bowlby One"; src: url("fonts/BowlbyOne_400Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+    @font-face { font-family: "Titan One"; src: url("fonts/TitanOne-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+    @font-face { font-family: "DM Sans"; src: url("fonts/DMSans_500Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+    @font-face { font-family: "DM Sans"; src: url("fonts/DMSans_700Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+
     :root {
       --bg: #FFF6E6;
-      --ink: #2A0F14;
       --muted: #6B4E53;
+
+      --sun-a: #7C1428;
+      --sun-b: #5E0D1B;
+      --deep: #2A0710;
+      --gold: #FFC83D;
+      --cream: #FFF1D6;
+
+      --red: #C8261C;
+      --navy: #0E2B3F;
+      --paper: #FFF8EC;
     }
     @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) {
-        --bg: #17090C;
-        --ink: #FFF1D6;
-        --muted: #CDB3B7;
-      }
+      :root { --bg: #17090C; --muted: #CDB3B7; }
     }
 
     * { box-sizing: border-box; }
     html { -webkit-text-size-adjust: 100%; }
     body {
       margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: ui-rounded, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.45;
       min-height: 100vh; min-height: 100dvh;
       display: flex; flex-direction: column;
-      padding: max(28px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right))
-               max(28px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+      background: var(--bg);
+      font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-weight: 500;
+      line-height: 1.4;
     }
-    main { width: 100%; max-width: 480px; margin: 0 auto; flex: 1 0 auto; }
-
+    a { color: inherit; }
     .sr-only {
       position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0;
       overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
     }
 
-    .card {
-      --btn-bg: var(--accent);
-      background: var(--card);
-      color: var(--on);
-      border-radius: 26px;
-      padding: 22px 20px 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 7px 0 var(--deep);
+    main { flex: 1 0 auto; display: flex; flex-direction: column; }
+
+    .panel {
+      position: relative; overflow: hidden; isolation: isolate;
+      flex: 1 0 auto; display: flex; align-items: center;
+      padding: 36px max(20px, env(safe-area-inset-right)) 36px max(20px, env(safe-area-inset-left));
     }
-    .kezbe   { --card: #7C1428; --deep: #2A0710; --accent: #FFC83D; --on: #FFF1D6; --btn-ink: #2A0710; }
-    .massela { --card: #C8261C; --deep: #5C100B; --accent: #FFFFFF; --on: #FFFFFF; --btn-ink: #9E1B13; }
+    .panel:first-child { padding-top: max(36px, env(safe-area-inset-top)); }
+    .inner { position: relative; width: 100%; max-width: 480px; margin: 0 auto; }
 
-    .top { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
-    .icon {
-      flex: none; width: 88px; height: 88px; border-radius: 22.37%;
-      box-shadow: 0 0 0 3px var(--on), 0 4px 0 3px var(--deep);
-    }
-    h2 { margin: 0; font-size: 1.55rem; line-height: 1.1; font-weight: 900; color: var(--accent); }
-    .tag { margin: 4px 0 0; font-weight: 700; }
+    .icon { display: block; width: 72px; height: 72px; border-radius: 22.37%; }
+    h2 { margin: 20px 0 0; font-weight: 400; font-size: clamp(1.9rem, 10.5vw, 3.3rem); line-height: 1; }
+    .tag { margin: 12px 0 0; font-size: 1.1rem; font-weight: 700; line-height: 1.3; }
 
-    .stores { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    @media (max-width: 359px) { .stores { grid-template-columns: 1fr; } }
-
+    .stores { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
     .btn {
       display: flex; flex-direction: column; justify-content: center;
-      min-height: 56px; padding: 8px 14px;
-      border-radius: 999px; text-align: center; text-decoration: none;
-      background: var(--btn-bg); color: var(--btn-ink);
-      box-shadow: 0 4px 0 var(--deep);
+      min-height: 60px; padding: 8px 20px; border-radius: 999px; text-decoration: none;
       transition: transform 120ms ease, box-shadow 120ms ease;
     }
-    .btn small { font-size: 0.72rem; font-weight: 700; opacity: 0.85; line-height: 1.1; }
-    .btn strong { font-size: 1.05rem; font-weight: 900; line-height: 1.2; }
-    a.btn:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--deep); }
-    a.btn:focus-visible, .meta a:focus-visible { outline: 3px solid var(--on); outline-offset: 3px; }
-    .btn.soon {
-      background: transparent; color: var(--on);
-      border: 2px dashed var(--on); box-shadow: none;
+    .btn small { font-size: .7rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; line-height: 1.2; }
+    .btn strong { font-size: 1.05rem; font-weight: 400; line-height: 1.25; }
+    a.btn:active { transform: translateY(4px); }
+
+    .meta { display: flex; gap: 22px; margin: 10px 0 0; }
+    .meta a { display: inline-flex; align-items: center; min-height: 44px; font-size: .9rem; font-weight: 700; text-underline-offset: 4px; }
+
+    /* ---------- Kezbe Bayda ---------- */
+    .kezbe { background: var(--sun-a); color: var(--cream); }
+    .kezbe .inner::before { /* the sunburst radiates from the app icon */
+      content: ""; position: absolute; z-index: -1; left: 36px; top: 36px;
+      width: 4000px; height: 4000px; margin: -2000px 0 0 -2000px;
+      background:
+        radial-gradient(circle at center, transparent 130px, rgba(26, 3, 9, .62) 500px),
+        repeating-conic-gradient(var(--sun-a) 0 5deg, var(--sun-b) 5deg 10deg);
     }
-    .btn.soon small { opacity: 1; }
+    .kezbe .icon { box-shadow: 0 0 0 3px var(--gold), 0 6px 0 3px var(--deep); }
+    .kezbe h2 { font-family: "Bowlby One", "Arial Black", system-ui, sans-serif; color: var(--gold); text-shadow: 0 4px 0 var(--deep); }
+    .kezbe .btn { background: var(--gold); color: var(--deep); box-shadow: 0 6px 0 var(--deep); }
+    .kezbe .btn strong { font-family: "Bowlby One", "Arial Black", system-ui, sans-serif; }
+    .kezbe a.btn:active { box-shadow: 0 2px 0 var(--deep); }
+    .kezbe a:focus-visible { outline: 3px solid var(--cream); outline-offset: 3px; }
 
-    .meta { margin: 14px 0 0; font-size: 0.85rem; text-align: center; }
-    .meta a { color: var(--on); text-underline-offset: 3px; }
+    /* ---------- Massela ---------- */
+    .massela { background: var(--red); color: var(--paper); --outline: -3px -3px 0 var(--navy), 3px -3px 0 var(--navy), -3px 3px 0 var(--navy), 3px 3px 0 var(--navy), 0 -3px 0 var(--navy), 0 3px 0 var(--navy), -3px 0 0 var(--navy), 3px 0 0 var(--navy); }
+    .massela::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background: radial-gradient(rgba(255, 248, 236, .16) 2.2px, transparent 2.8px) 0 0 / 20px 20px;
+    }
+    .massela .icon { box-shadow: 0 0 0 3px var(--navy), 0 6px 0 3px var(--navy); }
+    .massela h2 { font-family: "Titan One", "Arial Black", system-ui, sans-serif; color: var(--paper); text-shadow: var(--outline), 0 7px 0 var(--navy); }
+    .massela a.btn { background: var(--paper); color: var(--navy); border: 3px solid var(--navy); box-shadow: 0 6px 0 var(--navy); }
+    .massela .btn strong { font-family: "Titan One", "Arial Black", system-ui, sans-serif; }
+    .massela a.btn:active { box-shadow: 0 2px 0 var(--navy); }
+    .massela .btn.soon { background: transparent; color: var(--paper); border: 3px solid rgba(255, 248, 236, .6); box-shadow: none; }
+    .massela a:focus-visible { outline: 3px solid var(--paper); outline-offset: 3px; }
 
-    footer { text-align: center; color: var(--muted); font-size: 0.85rem; margin-top: auto; padding-top: 28px; }
+    footer {
+      padding: 20px 20px max(24px, env(safe-area-inset-bottom));
+      text-align: center; color: var(--muted); font-size: .85rem;
+    }
 
+    @media (max-width: 359px) { .stores { gap: 8px; } .btn { padding: 8px 14px; } .btn strong { font-size: .92rem; } }
     @media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
   </style>
 </head>
 <body>
-  <main>
-    <h1 class="sr-only">Charbel's Apps</h1>
+  <h1 class="sr-only">Charbel's Apps</h1>
 
+  <main>
     <!--
-      To add an app: copy one <section class="card …"> block, give it a colour class in the <style> above,
-      and drop its icon into icons/. To publish a store link that is "Coming soon": replace the
-      <span class="btn soon"> with an <a class="btn" href="…"> (copy the other button).
+      To add an app: copy one <section class="panel …"> block, give it a colour class in the <style> above and put
+      its icon in icons/. To turn a "Coming soon" button into a link: replace the <span class="btn soon"> with an
+      <a class="btn" href="…"> (copy the other button).
     -->
 
-    <section class="card kezbe" aria-labelledby="kb-name">
-      <div class="top">
-        <img class="icon" src="icons/kezbe-bayda.png" width="88" height="88" alt="">
-        <div>
-          <h2 id="kb-name">Kezbe Bayda</h2>
-          <p class="tag">The game show of lies</p>
+    <section class="panel kezbe" aria-labelledby="kb-name">
+      <div class="inner">
+        <img class="icon" src="icons/kezbe-bayda.png" width="72" height="72" alt="">
+        <h2 id="kb-name">Kezbe Bayda</h2>
+        <p class="tag">The game show of lies</p>
+        <div class="stores">
+          <a class="btn" href="https://apps.apple.com/app/id6816085585" aria-label="Kezbe Bayda on the App Store">
+            <small>iPhone &amp; iPad</small><strong>App Store</strong>
+          </a>
+          <a class="btn" href="https://play.google.com/store/apps/details?id=com.kezbebayda.app" aria-label="Kezbe Bayda on Google Play">
+            <small>Android</small><strong>Google Play</strong>
+          </a>
         </div>
+        <p class="meta">
+          <a href="https://charbelabou.github.io/legal/kezbe-bayda/support.html">Support</a>
+          <a href="https://charbelabou.github.io/legal/kezbe-bayda/privacy.html">Privacy</a>
+        </p>
       </div>
-      <div class="stores">
-        <a class="btn" href="https://apps.apple.com/app/id6816085585">
-          <small>Download on the</small><strong>App Store</strong>
-        </a>
-        <a class="btn" href="https://play.google.com/store/apps/details?id=com.kezbebayda.app">
-          <small>Get it on</small><strong>Google Play</strong>
-        </a>
-      </div>
-      <p class="meta">
-        <a href="https://charbelabou.github.io/legal/kezbe-bayda/support.html">Support</a> ·
-        <a href="https://charbelabou.github.io/legal/kezbe-bayda/privacy.html">Privacy</a>
-      </p>
     </section>
 
-    <section class="card massela" aria-labelledby="ms-name">
-      <div class="top">
-        <img class="icon" src="icons/massela.png" width="88" height="88" alt="">
-        <div>
-          <h2 id="ms-name">Massela</h2>
-          <p class="tag">Lebanese charades</p>
+    <section class="panel massela" aria-labelledby="ms-name">
+      <div class="inner">
+        <img class="icon" src="icons/massela.png" width="72" height="72" alt="">
+        <h2 id="ms-name">Massela</h2>
+        <p class="tag">Lebanese charades</p>
+        <div class="stores">
+          <a class="btn" href="https://apps.apple.com/app/id6757847836" aria-label="Massela on the App Store">
+            <small>iPhone &amp; iPad</small><strong>App Store</strong>
+          </a>
+          <span class="btn soon">
+            <small>Android</small><strong>Coming soon</strong>
+          </span>
         </div>
+        <p class="meta">
+          <a href="https://charbelabou.github.io/legal/massela/support.html">Support</a>
+          <a href="https://charbelabou.github.io/legal/massela/privacy.html">Privacy</a>
+        </p>
       </div>
-      <div class="stores">
-        <a class="btn" href="https://apps.apple.com/app/id6757847836">
-          <small>Download on the</small><strong>App Store</strong>
-        </a>
-        <span class="btn soon">
-          <small>Google Play</small><strong>Coming soon</strong>
-        </span>
-      </div>
-      <p class="meta">
-        <a href="https://charbelabou.github.io/legal/massela/support.html">Support</a> ·
-        <a href="https://charbelabou.github.io/legal/massela/privacy.html">Privacy</a>
-      </p>
     </section>
-
   </main>
+
   <footer>Made by Charbel</footer>
 </body>
 </html>

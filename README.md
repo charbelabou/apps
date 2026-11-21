@@ -9,12 +9,22 @@ One link to all my apps, with their App Store and Google Play pages.
 | Kezbe Bayda, a bluffing trivia party game | [App Store](https://apps.apple.com/app/id6816085585) | [Google Play](https://play.google.com/store/apps/details?id=com.kezbebayda.app) |
 | Massela, Lebanese charades | [App Store](https://apps.apple.com/app/id6757847836) | coming soon |
 
-## Editing
+## How it's built
 
-The whole site is `index.html` (plain HTML and CSS, no build step, no scripts, no trackers) plus the icons in `icons/`.
+One `index.html` (plain HTML and CSS, no build step, no scripts, no trackers) plus `icons/`, `fonts/` and `favicon.png`.
 Push to `main` and GitHub Pages republishes it within a minute or so.
 
-- **Massela on Google Play goes live:** in the Massela card, replace `<span class="btn soon">…</span>` with a copy of the
-  Kezbe Bayda Google Play `<a class="btn" href="…">` button and the new `play.google.com` link.
-- **New app:** copy one `<section class="card …">` block, add a colour class for it in the `<style>` block, and put a
+Each app is a full-width panel drawn in that app's own look: Kezbe Bayda uses its game-show sunburst, gold and Bowlby One;
+Massela uses its sticker style, navy outlines and Titan One. The fonts are the apps' own, hosted here under their open
+licences (see `fonts/`), so the page makes no third-party requests.
+
+The store buttons are plain text on purpose: Apple requires its official artwork for a "Download on the App Store" badge,
+so the page does not imitate one. To use the official badges, download them from Apple's and Google's marketing
+resources (accepting their terms) and swap them in.
+
+## Common edits
+
+- **Massela on Google Play goes live:** in the Massela panel, replace `<span class="btn soon">…</span>` with a copy of the
+  Kezbe Bayda Google Play `<a class="btn" href="…">` and the new `play.google.com` link.
+- **New app:** copy one `<section class="panel …">` block, give it a colour class in the `<style>` block, and put a
   256×256 icon in `icons/`.
