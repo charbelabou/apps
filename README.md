@@ -14,9 +14,9 @@ One link to all my apps, with their App Store and Google Play pages.
 One `index.html` (plain HTML and CSS, no build step, no scripts, no trackers) plus `icons/`, `fonts/` and `favicon.png`.
 Push to `main` and GitHub Pages republishes it within a minute or so.
 
-Each app is a card drawn in that app's own look: Kezbe Bayda uses its game-show sunburst (radiating from the icon), a gold
-edge, hard shadows and Bowlby One; Massela uses its dotted red, navy outlines and Titan One. The fonts are the apps' own,
-hosted here under their open licences (see `fonts/`), so the page makes no third-party requests.
+The design is deliberately restrained: one typeface (DM Sans, hosted here under its open licence so the page makes no
+third-party requests), no borders, soft depth, one accent colour per card. Each card keeps its game's colours (Kezbe Bayda
+burgundy with gold buttons, Massela red with paper buttons) and a faint trace of its pattern (sunburst, dots).
 
 The store buttons are plain text on purpose: Apple requires its official artwork for a "Download on the App Store" badge,
 so the page does not imitate one. To use the official badges, download them from Apple's and Google's marketing

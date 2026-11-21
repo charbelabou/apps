@@ -5,40 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Charbel's Apps</title>
   <meta name="description" content="Kezbe Bayda and Massela, Lebanese party games, on the App Store and Google Play.">
-  <meta name="theme-color" content="#FFF6E6" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#17090C" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F7F1E8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#120A0C" media="(prefers-color-scheme: dark)">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Charbel's Apps">
   <meta property="og:description" content="Kezbe Bayda and Massela, Lebanese party games.">
   <meta property="og:url" content="https://charbelabou.github.io/apps/">
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="favicon.png">
-  <link rel="preload" as="font" type="font/woff2" href="fonts/BowlbyOne_400Regular.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="fonts/TitanOne-Regular.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="fonts/DMSans_700Bold.woff2" crossorigin>
   <style>
-    /* Each card is drawn in its own app's visual language: Kezbe Bayda is the game-show sunburst with gold and
-       hard shadows, Massela is the sticker style with navy outlines. Fonts are the ones the apps use. */
-    @font-face { font-family: "Bowlby One"; src: url("fonts/BowlbyOne_400Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
-    @font-face { font-family: "Titan One"; src: url("fonts/TitanOne-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+    /* One typeface (the one Kezbe Bayda uses for body text), one accent per card, no borders, soft depth.
+       Each card keeps its game's colour and a faint trace of its pattern. */
     @font-face { font-family: "DM Sans"; src: url("fonts/DMSans_500Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
     @font-face { font-family: "DM Sans"; src: url("fonts/DMSans_700Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
 
     :root {
-      --bg: #FFF6E6;
-      --muted: #6B4E53;
+      --bg: #F7F1E8;
+      --muted: #6B5A5C;
+      --ring: rgba(0, 0, 0, .06);
+      --lift: 0 1px 2px rgba(40, 10, 15, .10), 0 20px 36px -20px rgba(40, 10, 15, .50);
 
-      --sun-a: #7C1428;
-      --sun-b: #5E0D1B;
-      --deep: #2A0710;
-      --gold: #FFC83D;
+      --burgundy: #7C1428;
+      --burgundy-deep: #650F20;
       --cream: #FFF1D6;
+      --gold: #FFC83D;
+      --ink: #2A0710;
 
       --red: #C8261C;
-      --navy: #0E2B3F;
+      --red-deep: #AF2017;
       --paper: #FFF8EC;
+      --navy: #0E2B3F;
     }
     @media (prefers-color-scheme: dark) {
-      :root { --bg: #17090C; --muted: #CDB3B7; }
+      :root { --bg: #120A0C; --muted: #B9A5A9; --ring: rgba(255, 255, 255, .08); --lift: 0 0 0 transparent; }
     }
 
     * { box-sizing: border-box; }
@@ -51,10 +51,10 @@
       line-height: 1.4;
       min-height: 100vh; min-height: 100dvh;
       display: flex; flex-direction: column;
-      padding: max(28px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right))
-               max(28px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+      padding: max(24px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right))
+               max(24px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
     }
-    main { width: 100%; max-width: 480px; margin: 0 auto; flex: 1 0 auto; }
+    main { width: 100%; max-width: 480px; margin: 0 auto; flex: 1 0 auto; display: flex; flex-direction: column; justify-content: center; }
     a { color: inherit; }
 
     .sr-only {
@@ -64,67 +64,58 @@
 
     .card {
       position: relative; overflow: hidden; isolation: isolate;
-      border: 4px solid var(--edge);
-      border-radius: 26px;
-      padding: 20px 18px 8px;
-      margin-bottom: 22px;
-      box-shadow: 0 7px 0 var(--edge);
+      border-radius: 28px; padding: 24px; margin: 0 0 16px;
+      box-shadow: 0 0 0 1px var(--ring), var(--lift);
     }
 
-    .top { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
-    .icon { flex: none; width: 88px; height: 88px; border-radius: 22.37%; }
-    h2 { margin: 0; font-weight: 400; font-size: clamp(1.35rem, 6.2vw, 2rem); line-height: 1.05; }
-    .tag { margin: 6px 0 0; font-size: 1rem; font-weight: 700; line-height: 1.3; }
+    .top { display: flex; align-items: center; gap: 16px; }
+    .icon {
+      flex: none; width: 80px; height: 80px; border-radius: 22.37%;
+      outline: 1px solid rgba(255, 255, 255, .16); outline-offset: -1px;
+      box-shadow: 0 8px 18px -6px rgba(0, 0, 0, .45);
+    }
+    h2 { margin: 0; font-size: 1.65rem; font-weight: 700; line-height: 1.1; letter-spacing: -.02em; }
+    .tag { margin: 5px 0 0; font-size: .95rem; line-height: 1.3; }
 
-    .stores { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .stores { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 24px; }
     .btn {
-      display: flex; flex-direction: column; justify-content: center;
-      min-height: 58px; padding: 8px 14px 8px 18px; border-radius: 999px; text-decoration: none;
-      transition: transform 120ms ease, box-shadow 120ms ease;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      min-height: 52px; padding: 0 12px; border-radius: 14px;
+      font-size: .95rem; font-weight: 700; text-decoration: none; white-space: nowrap;
+      transition: transform 120ms ease, filter 120ms ease;
     }
-    .btn small { font-size: .68rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; line-height: 1.2; }
-    .btn strong { font-size: .94rem; font-weight: 400; line-height: 1.25; white-space: nowrap; }
-    a.btn:active { transform: translateY(4px); }
+    .btn small { font-size: .78rem; font-weight: 500; }
+    a.btn:active { transform: scale(.98); filter: brightness(.94); }
 
-    .meta { display: flex; justify-content: center; gap: 24px; margin: 8px 0 0; }
-    .meta a { display: inline-flex; align-items: center; min-height: 44px; font-size: .88rem; font-weight: 700; text-underline-offset: 4px; }
+    .meta { display: flex; gap: 22px; margin: 8px 0 -8px; }
+    .meta a { display: inline-flex; align-items: center; min-height: 44px; font-size: .85rem; text-decoration-thickness: 1px; text-underline-offset: 4px; text-decoration-color: rgba(255, 255, 255, .45); }
 
-    /* ---------- Kezbe Bayda: sunburst, gold edge, hard deep shadow, Bowlby One ---------- */
-    .kezbe { --edge: var(--gold); background: var(--sun-a); color: var(--cream); box-shadow: 0 7px 0 var(--deep); }
-    .kezbe::before { /* the sunburst radiates from the app icon */
-      content: ""; position: absolute; z-index: -1; left: 62px; top: 64px;
-      width: 1800px; height: 1800px; margin: -900px 0 0 -900px;
-      background:
-        radial-gradient(circle at center, transparent 110px, rgba(26, 3, 9, .62) 440px),
-        repeating-conic-gradient(var(--sun-a) 0 5deg, var(--sun-b) 5deg 10deg);
+    /* ---------- Kezbe Bayda: burgundy and cream, gold only on the buttons ---------- */
+    .kezbe { background: linear-gradient(170deg, var(--burgundy), var(--burgundy-deep)); color: var(--cream); }
+    .kezbe::before { /* a faint sunburst from the icon, the game's pattern at a whisper */
+      content: ""; position: absolute; z-index: -1; inset: 0;
+      background: repeating-conic-gradient(from 0deg at 64px 64px, rgba(255, 255, 255, .045) 0 5deg, transparent 5deg 10deg);
+      -webkit-mask-image: radial-gradient(circle 440px at 64px 64px, #000, transparent);
+      mask-image: radial-gradient(circle 440px at 64px 64px, #000, transparent);
     }
-    .kezbe .icon { box-shadow: 0 0 0 3px var(--gold), 0 5px 0 3px var(--deep); }
-    .kezbe h2, .kezbe .btn strong { font-family: "Bowlby One", "Arial Black", system-ui, sans-serif; }
-    .kezbe h2 { color: var(--gold); text-shadow: 0 3px 0 var(--deep); }
-    .kezbe .btn { background: var(--gold); color: var(--deep); box-shadow: 0 5px 0 var(--deep); }
-    .kezbe a.btn:active { box-shadow: 0 1px 0 var(--deep); }
+    .kezbe .btn { background: var(--gold); color: var(--ink); }
     .kezbe a:focus-visible { outline: 3px solid var(--cream); outline-offset: 3px; }
 
-    /* ---------- Massela: dotted red, navy outline, hard navy shadow, Titan One ---------- */
-    .massela {
-      --edge: var(--navy); background: var(--red); color: var(--paper);
-      --outline: -2px -2px 0 var(--navy), 2px -2px 0 var(--navy), -2px 2px 0 var(--navy), 2px 2px 0 var(--navy), 0 -2px 0 var(--navy), 0 2px 0 var(--navy), -2px 0 0 var(--navy), 2px 0 0 var(--navy);
+    /* ---------- Massela: red and paper, navy on the buttons ---------- */
+    .massela { background: linear-gradient(170deg, var(--red), var(--red-deep)); color: var(--paper); }
+    .massela::before { /* faint dots from the corner, the game's pattern at a whisper */
+      content: ""; position: absolute; z-index: -1; inset: 0;
+      background: radial-gradient(rgba(255, 255, 255, .13) 1.5px, transparent 2px) 0 0 / 18px 18px;
+      -webkit-mask-image: linear-gradient(to left, #000, transparent 75%);
+      mask-image: linear-gradient(to left, #000, transparent 75%);
     }
-    .massela::before {
-      content: ""; position: absolute; inset: 0; z-index: -1;
-      background: radial-gradient(rgba(255, 248, 236, .16) 2.2px, transparent 2.8px) 0 0 / 20px 20px;
-    }
-    .massela .icon { box-shadow: 0 0 0 3px var(--navy), 0 5px 0 3px var(--navy); }
-    .massela h2, .massela .btn strong { font-family: "Titan One", "Arial Black", system-ui, sans-serif; }
-    .massela h2 { color: var(--paper); text-shadow: var(--outline), 0 5px 0 var(--navy); }
-    .massela a.btn { background: var(--paper); color: var(--navy); border: 3px solid var(--navy); box-shadow: 0 5px 0 var(--navy); }
-    .massela a.btn:active { box-shadow: 0 1px 0 var(--navy); }
-    .massela .btn.soon { background: transparent; color: var(--paper); border: 3px solid rgba(255, 248, 236, .6); box-shadow: none; }
+    .massela a.btn { background: var(--paper); color: var(--navy); }
+    .massela .btn.soon { background: rgba(255, 255, 255, .12); color: var(--paper); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .32); }
     .massela a:focus-visible { outline: 3px solid var(--paper); outline-offset: 3px; }
 
-    footer { text-align: center; color: var(--muted); font-size: .85rem; margin-top: auto; padding-top: 12px; }
+    footer { text-align: center; color: var(--muted); font-size: .85rem; padding-top: 12px; }
 
-    @media (max-width: 359px) { .stores { grid-template-columns: 1fr; gap: 10px; } .icon { width: 72px; height: 72px; } }
+    @media (max-width: 359px) { .stores { grid-template-columns: 1fr; } .icon { width: 68px; height: 68px; } .card { padding: 20px; } }
     @media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
   </style>
 </head>
@@ -140,19 +131,15 @@
 
     <section class="card kezbe" aria-labelledby="kb-name">
       <div class="top">
-        <img class="icon" src="icons/kezbe-bayda.png" width="88" height="88" alt="">
+        <img class="icon" src="icons/kezbe-bayda.png" width="80" height="80" alt="">
         <div>
           <h2 id="kb-name">Kezbe Bayda</h2>
           <p class="tag">The game show of lies</p>
         </div>
       </div>
       <div class="stores">
-        <a class="btn" href="https://apps.apple.com/app/id6816085585" aria-label="Kezbe Bayda on the App Store">
-          <small>iPhone &amp; iPad</small><strong>App Store</strong>
-        </a>
-        <a class="btn" href="https://play.google.com/store/apps/details?id=com.kezbebayda.app" aria-label="Kezbe Bayda on Google Play">
-          <small>Android</small><strong>Google Play</strong>
-        </a>
+        <a class="btn" href="https://apps.apple.com/app/id6816085585" aria-label="Kezbe Bayda on the App Store">App Store</a>
+        <a class="btn" href="https://play.google.com/store/apps/details?id=com.kezbebayda.app" aria-label="Kezbe Bayda on Google Play">Google Play</a>
       </div>
       <p class="meta">
         <a href="https://charbelabou.github.io/legal/kezbe-bayda/support.html">Support</a>
@@ -162,19 +149,15 @@
 
     <section class="card massela" aria-labelledby="ms-name">
       <div class="top">
-        <img class="icon" src="icons/massela.png" width="88" height="88" alt="">
+        <img class="icon" src="icons/massela.png" width="80" height="80" alt="">
         <div>
           <h2 id="ms-name">Massela</h2>
           <p class="tag">Lebanese charades</p>
         </div>
       </div>
       <div class="stores">
-        <a class="btn" href="https://apps.apple.com/app/id6757847836" aria-label="Massela on the App Store">
-          <small>iPhone &amp; iPad</small><strong>App Store</strong>
-        </a>
-        <span class="btn soon">
-          <small>Android</small><strong>Coming soon</strong>
-        </span>
+        <a class="btn" href="https://apps.apple.com/app/id6757847836" aria-label="Massela on the App Store">App Store</a>
+        <span class="btn soon">Google Play <small>soon</small></span>
       </div>
       <p class="meta">
         <a href="https://charbelabou.github.io/legal/massela/support.html">Support</a>
