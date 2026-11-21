@@ -38,9 +38,10 @@
     }
     main { max-width: 480px; margin: 0 auto; }
 
-    header { text-align: center; margin-bottom: 24px; }
-    h1 { margin: 0 0 6px; font-size: 1.9rem; line-height: 1.15; font-weight: 900; letter-spacing: -0.01em; }
-    header p { margin: 0; color: var(--muted); font-size: 1.02rem; text-wrap: balance; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0;
+      overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+    }
 
     .card {
       --btn-bg: var(--accent);
@@ -94,10 +95,7 @@
 </head>
 <body>
   <main>
-    <header>
-      <h1>Charbel's Apps</h1>
-      <p>Lebanese party games for your phone. No accounts, no ads.</p>
-    </header>
+    <h1 class="sr-only">Charbel's Apps</h1>
 
     <!--
       To add an app: copy one <section class="card …"> block, give it a colour class in the <style> above,
