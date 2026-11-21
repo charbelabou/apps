@@ -18,9 +18,10 @@ The design is deliberately restrained: one typeface (DM Sans, hosted here under 
 third-party requests), no borders, soft depth, one accent colour per card. Each card keeps its game's colours (Kezbe Bayda
 burgundy with gold buttons, Massela red with paper buttons) and a faint trace of its pattern (sunburst, dots).
 
-The store buttons are plain text on purpose: Apple requires its official artwork for a "Download on the App Store" badge,
-so the page does not imitate one. To use the official badges, download them from Apple's and Google's marketing
-resources (accepting their terms) and swap them in.
+The store buttons carry small monochrome App Store and Google Play glyphs (inlined from [Simple Icons](https://simpleicons.org),
+CC0; the logos themselves are trademarks of Apple Inc. and Google LLC). They are not Apple's or Google's official badges.
+Apple's guidelines say a link to the App Store should use its official badge artwork, so if you want to be strictly
+compliant, download the badges from Apple's and Google's marketing resources (accepting their terms) and swap them in.
 
 ## Common edits
 
